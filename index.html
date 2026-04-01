@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Often – Adverbs of Frequency</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Noto+Sans+Khmer:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0f1923;
+    --surface: #162030;
+    --card: #1e2d3d;
+    --card2: #243545;
+    --accent1: #f5a623;
+    --accent2: #4ecdc4;
+    --accent3: #ff6b6b;
+    --accent4: #a78bfa;
+    --text: #f0f4f8;
+    --muted: #8fa3b8;
+    --border: rgba(255,255,255,0.08);
+    --green: #56cf89;
+    --red: #ff6b6b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .khmer {
+    font-family: 'Noto Sans Khmer', sans-serif;
+    font-size: 0.85em;
+    color: var(--accent2);
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #1a2d42 0%, #0f1923 100%);
+    border-bottom: 2px solid var(--accent1);
+    padding: 28px 40px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,166,35,0.15) 0%, transparent 70%);
+  }
+  .header-badge {
+    display: inline-block;
+    background: var(--accent1);
+    color: #0f1923;
+    font-weight: 800;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+  }
+  header h1 span { color: var(--accent1); }
+  .header-sub {
+    margin-top: 6px;
+    font-size: 1rem;
+    color: var(--muted);
+  }
+  .header-sub .khmer { color: var(--muted); font-size: 0.82em; }
+
+  /* ── NAV TABS ── */
+  .tabs {
+    display: flex;
+    gap: 6px;
+    padding: 20px 40px 0;
+    overflow-x: auto;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex-shrink: 0;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--muted);
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab:hover { color: var(--text); background: var(--card); }
+  .tab.active {
+    background: var(--card);
+    color: var(--accent1);
+    border-color: var(--border);
+    border-bottom-color: var(--card);
+  }
+
+  /* ── MAIN CONTENT ── */
+  main { padding: 30px 40px 60px; max-width: 1100px; }
+  .panel { display: none; }
+  .panel.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: translateY(0); } }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent1);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── FORMULA CARD ── */
+  .formula-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent1);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .formula-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .chunk {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .c-wh   { background: rgba(245,166,35,0.18);  color: var(--accent1); }
+  .c-aux  { background: rgba(78,205,196,0.18);   color: var(--accent2); }
+  .c-sub  { background: rgba(86,207,137,0.18);   color: var(--green); }
+  .c-vb   { background: rgba(255,107,107,0.18);  color: var(--accent3); }
+  .c-rest { background: rgba(255,255,255,0.07);  color: var(--muted); }
+  .c-adv  { background: rgba(167,139,250,0.22);  color: var(--accent4); }
+  .plus   { color: var(--muted); font-size: 18px; font-weight: 300; }
+
+  .formula-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+  .legend-item {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border-radius: 3px;
+  }
+
+  /* ── EXAMPLE ROWS ── */
+  .examples-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 640px) { .examples-grid { grid-template-columns: 1fr; } }
+
+  .ex-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .ex-card:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.16); }
+  .ex-label {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .ex-en { font-size: 15px; font-weight: 600; color: var(--text); line-height: 1.5; }
+  .ex-en .hl { font-weight: 800; }
+  .hl-wh   { color: var(--accent1); }
+  .hl-adv  { color: var(--accent4); }
+  .hl-num  { color: var(--accent2); }
+  .hl-day  { color: var(--green); }
+
+  /* ── SCALE BAR ── */
+  .scale-wrap { margin-bottom: 24px; }
+  .scale-title { font-size: 13px; color: var(--muted); margin-bottom: 10px; font-weight: 600; }
+  .scale-bar {
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+  .scale-seg {
+    flex: 1;
+    padding: 10px 4px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter 0.15s, transform 0.15s;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+  }
+  .scale-seg:hover { filter: brightness(1.2); transform: scaleY(1.04); }
+  .scale-seg .sw { font-size: 11px; }
+  .scale-seg .sp { font-size: 9px; opacity: 0.75; }
+  .scale-seg .sk { font-family: 'Noto Sans Khmer', sans-serif; font-size: 9px; opacity: 0.8; }
+
+  /* ── ADVERB POSITION ── */
+  .position-section { margin-bottom: 28px; }
+  .pos-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 12px;
+  }
+  .pos-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .pos-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+  }
+  .pos-rule { font-size: 13px; color: var(--muted); }
+  .sentence-builder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin: 8px 0;
+  }
+  .sb { padding: 5px 12px; border-radius: 7px; font-size: 14px; font-weight: 600; }
+
+  .error-ok-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+  }
+  @media (max-width: 540px) { .error-ok-row { grid-template-columns: 1fr; } }
+  .err-box, .ok-box {
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .err-box { background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.25); }
+  .ok-box  { background: rgba(86,207,137,0.1);  border: 1px solid rgba(86,207,137,0.25); }
+  .err-label { font-size: 11px; font-weight: 800; color: var(--red); margin-bottom: 5px; }
+  .ok-label  { font-size: 11px; font-weight: 800; color: var(--green); margin-bottom: 5px; }
+
+  /* ── SOMETIMES SPECIAL ── */
+  .special-card {
+    background: linear-gradient(135deg, rgba(167,139,250,0.12), rgba(78,205,196,0.08));
+    border: 1px solid rgba(167,139,250,0.3);
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .special-card::before {
+    content: '★';
+    position: absolute;
+    right: 20px; top: 16px;
+    font-size: 28px;
+    opacity: 0.15;
+  }
+  .special-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--accent4);
+    margin-bottom: 6px;
+  }
+  .special-sub { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+  .pos-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .pos-pill {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .pp-begin { background: rgba(245,166,35,0.18); border: 1px solid rgba(245,166,35,0.3); }
+  .pp-mid   { background: rgba(167,139,250,0.18); border: 1px solid rgba(167,139,250,0.3); }
+  .pp-end   { background: rgba(78,205,196,0.18);  border: 1px solid rgba(78,205,196,0.3); }
+  .pp-label { font-size: 10px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7; }
+  .sometimes-examples .se {
+    font-size: 14px;
+    color: var(--text);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .sometimes-examples .se:last-child { border-bottom: none; }
+
+  /* ── NUMBER EXPRESSIONS ── */
+  .num-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .num-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .num-card:hover { transform: translateY(-2px); border-color: var(--accent2); }
+  .num-big {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--accent2);
+    margin-bottom: 4px;
+  }
+  .num-kh {
+    font-family: 'Noto Sans Khmer', sans-serif;
+    font-size: 12px;
+    color: var(--accent2);
+    opacity: 0.85;
+    margin-bottom: 8px;
+  }
+  .num-examples { font-size: 12px; color: var(--muted); line-height: 1.7; }
+  .num-formula {
+    display: inline-block;
+    margin-top: 8px;
+    background: rgba(78,205,196,0.1);
+    border: 1px dashed rgba(78,205,196,0.35);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 12px;
+    color: var(--accent2);
+    font-weight: 700;
+  }
+
+  /* ── ANSWER TYPES ── */
+  .answer-types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .ans-type-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .ans-type-title {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .ans-ex-row {
+    font-size: 13px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    line-height: 1.5;
+    color: var(--text);
+  }
+  .ans-ex-row .kh2 {
+    font-family: 'Noto Sans Khmer', sans-serif;
+    font-size: 11px;
+    color: var(--muted);
+    display: block;
+  }
+  .ans-ex-row:last-child { border-bottom: none; }
+
+  /* ── QUIZ ── */
+  .quiz-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 16px;
+  }
+  .quiz-q {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .quiz-kh {
+    font-family: 'Noto Sans Khmer', sans-serif;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 480px) { .quiz-options { grid-template-columns: 1fr; } }
+  .quiz-opt {
+    padding: 12px 16px;
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    color: var(--text);
+    font-family: 'Nunito', sans-serif;
+  }
+  .quiz-opt:hover:not(.disabled) { border-color: var(--accent4); background: rgba(167,139,250,0.1); }
+  .quiz-opt.correct { background: rgba(86,207,137,0.15); border-color: var(--green); color: var(--green); }
+  .quiz-opt.wrong   { background: rgba(255,107,107,0.12); border-color: var(--red);   color: var(--red); }
+  .quiz-opt.disabled { cursor: not-allowed; opacity: 0.6; }
+  .quiz-feedback {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    display: none;
+  }
+  .quiz-feedback.show { display: block; }
+  .quiz-feedback.ok  { background: rgba(86,207,137,0.1); color: var(--green); border: 1px solid rgba(86,207,137,0.3); }
+  .quiz-feedback.bad { background: rgba(255,107,107,0.1); color: var(--red);   border: 1px solid rgba(255,107,107,0.3); }
+  .quiz-score-bar {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 24px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .score-num { font-size: 48px; font-weight: 900; color: var(--accent1); }
+  .score-label { font-size: 14px; color: var(--muted); margin-top: 4px; }
+  .btn-reset {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 24px;
+    background: var(--accent1);
+    color: #0f1923;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .btn-reset:hover { opacity: 0.88; }
+
+  /* ── QUICK REF TABLE ── */
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .ref-table th {
+    background: var(--card2);
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent1);
+    border-bottom: 1px solid var(--border);
+  }
+  .ref-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .ref-table tr:hover td { background: rgba(255,255,255,0.02); }
+  .ref-table .kh-td { font-family: 'Noto Sans Khmer', sans-serif; font-size: 12px; color: var(--accent2); }
+  .pct-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  /* ── INFO BOX ── */
+  .info-box {
+    background: rgba(78,205,196,0.08);
+    border: 1px solid rgba(78,205,196,0.25);
+    border-radius: 10px;
+    padding: 14px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  .info-box strong { color: var(--accent2); }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--card2); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-badge">Grammar · Level 3</div>
+  <h1><span>How Often</span> &amp; Adverbs of Frequency</h1>
+  <p class="header-sub">
+    Questions, answers, adverb position, and number expressions
+    <span class="khmer">សំណួរ ចម្លើយ ទីតាំងគុណស័ព្ទប្រេកង់ និងការបញ្ជាក់ចំនួន</span>
+  </p>
+</header>
+
+<div class="tabs">
+  <button class="tab active" onclick="showPanel('question')">❓ Question Form</button>
+  <button class="tab" onclick="showPanel('scale')">📊 Frequency Scale</button>
+  <button class="tab" onclick="showPanel('position')">📍 Adverb Position</button>
+  <button class="tab" onclick="showPanel('sometimes')">⭐ Sometimes (Special)</button>
+  <button class="tab" onclick="showPanel('numbers')">🔢 Numbers</button>
+  <button class="tab" onclick="showPanel('answers')">💬 How to Answer</button>
+  <button class="tab" onclick="showPanel('quiz')">✏️ Quiz</button>
+</div>
+
+<main>
+
+<!-- ═══════════════════════════════════════════ QUESTION FORM -->
+<div class="panel active" id="panel-question">
+  <div class="section-title">Question Formula <span class="khmer" style="font-size:10px; letter-spacing:0; text-transform:none;">រូបមន្តសំណួរ</span></div>
+
+  <div class="formula-card">
+    <div class="formula-row">
+      <span class="chunk c-wh">How often</span>
+      <span class="plus">+</span>
+      <span class="chunk c-aux">do / does</span>
+      <span class="plus">+</span>
+      <span class="chunk c-sub">Subject</span>
+      <span class="plus">+</span>
+      <span class="chunk c-vb">Verb</span>
+      <span class="chunk c-rest">+ …?</span>
+    </div>
+    <div class="formula-legend">
+      <span class="legend-item"><span class="legend-dot" style="background:var(--accent1)"></span> How often = ញឹកញាប់ប៉ុណ្ណា</span>
+      <span class="legend-item"><span class="legend-dot" style="background:var(--accent2)"></span> do (I/you/we/they) · does (he/she/it)</span>
+      <span class="legend-item"><span class="legend-dot" style="background:var(--green)"></span> Subject = ប្រធានបទ</span>
+      <span class="legend-item"><span class="legend-dot" style="background:var(--accent3)"></span> Verb (base form) = កិរិយាស័ព្ទ</span>
+    </div>
+  </div>
+
+  <div class="section-title">Examples <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">ឧទាហរណ៍</span></div>
+  <div class="examples-grid">
+    <div class="ex-card">
+      <div class="ex-label">Question</div>
+      <div class="ex-en"><span class="hl hl-wh">How often</span> <span class="hl" style="color:var(--accent2)">do</span> <span class="hl" style="color:var(--green)">you</span> go to the market?</div>
+      <span class="khmer">តើអ្នក​ទៅ​ផ្សារ​ញឹកញាប់​ប៉ុណ្ណា?</span>
+    </div>
+    <div class="ex-card">
+      <div class="ex-label">Question</div>
+      <div class="ex-en"><span class="hl hl-wh">How often</span> <span class="hl" style="color:var(--accent2)">does</span> <span class="hl" style="color:var(--green)">she</span> study?</div>
+      <span class="khmer">តើ​នាង​រៀន​ញឹកញាប់​ប៉ុណ្ណា?</span>
+    </div>
+    <div class="ex-card">
+      <div class="ex-label">Question</div>
+      <div class="ex-en"><span class="hl hl-wh">How often</span> <span class="hl" style="color:var(--accent2)">do</span> <span class="hl" style="color:var(--green)">they</span> meet?</div>
+      <span class="khmer">តើ​ពួកគេ​ជួប​ញឹកញាប់​ប៉ុណ្ណា?</span>
+    </div>
+    <div class="ex-card">
+      <div class="ex-label">Question</div>
+      <div class="ex-en"><span class="hl hl-wh">How often</span> <span class="hl" style="color:var(--accent2)">does</span> <span class="hl" style="color:var(--green)">your group</span> meet?</div>
+      <span class="khmer">តើ​ក្រុម​របស់​អ្នក​ជួប​ញឹកញាប់​ប៉ុណ្ណា?</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ FREQUENCY SCALE -->
+<div class="panel" id="panel-scale">
+  <div class="section-title">Frequency Scale <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">កម្រិត​ប្រេកង់</span></div>
+
+  <div class="scale-wrap">
+    <div class="scale-title">Click each word to see an example sentence · ចុចពាក្យ ដើម្បីមើលប្រយោគឧទាហរណ៍</div>
+    <div class="scale-bar">
+      <div class="scale-seg" style="background:rgba(78,205,196,0.25)" onclick="showScaleEx(0)">
+        <span class="sw">never</span><span class="sp">0%</span><span class="sk">មិនដែល</span>
+      </div>
+      <div class="scale-seg" style="background:rgba(78,205,196,0.15)" onclick="showScaleEx(1)">
+        <span class="sw">rarely</span><span class="sp">~10%</span><span class="sk">កម្រណាស់</span>
+      </div>
+      <div class="scale-seg" style="background:rgba(78,205,196,0.1)" onclick="showScaleEx(2)">
+        <span class="sw">seldom</span><span class="sp">~15%</span><span class="sk">កម្រ</span>
+      </div>
+      <div class="scale-seg" style="background:rgba(167,139,250,0.15)" onclick="showScaleEx(3)">
+        <span class="sw">sometimes</span><span class="sp">~50%</span><span class="sk">ម្តងម្កាល</span>
+      </div>
+      <div class="scale-seg" style="background:rgba(245,166,35,0.15)" onclick="showScaleEx(4)">
+        <span class="sw">often</span><span class="sp">~70%</span><span class="sk">ញឹកញាប់</span>
+      </div>
+      <div class="scale-seg" style="background:rgba(245,166,35,0.22)" onclick="showScaleEx(5)">
+        <span class="sw">usually</span><span class="sp">~80%</span><span class="sk">ជាធម្មតា</span>
+      </div>
+      <div class="scale-seg" style="background:rgba(255,107,107,0.2)" onclick="showScaleEx(6)">
+        <span class="sw">always</span><span class="sp">100%</span><span class="sk">តែងតែ</span>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:4px;">
+      <span>← hardly ever / កម្រ</span>
+      <span>always / តែងតែ →</span>
+    </div>
+  </div>
+
+  <div id="scale-ex-box" style="display:none;margin-bottom:20px;">
+    <div class="ex-card" style="border-color:var(--accent4);">
+      <div class="ex-label" id="scale-ex-word"></div>
+      <div class="ex-en" id="scale-ex-en"></div>
+      <span class="khmer" id="scale-ex-kh"></span>
+    </div>
+  </div>
+
+  <div class="section-title">Synonyms <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">ពាក្យដែលមានន័យដូច</span></div>
+
+  <div class="examples-grid">
+    <div class="ex-card" style="border-left:3px solid var(--accent1);">
+      <div class="ex-label" style="color:var(--accent1);">Other words for "usually" · ពាក្យដែលមានន័យដូច usually</div>
+      <div class="ex-en" style="margin-top:6px;"><span class="hl-adv" style="color:var(--accent1);font-weight:800;">a lot</span> &nbsp;·&nbsp; <span class="hl-adv" style="color:var(--accent1);font-weight:800;">frequently</span></div>
+      <span class="khmer">ញឹកញាប់ · ជាប្រចាំ</span>
+    </div>
+    <div class="ex-card" style="border-left:3px solid var(--accent2);">
+      <div class="ex-label" style="color:var(--accent2);">Other words for "hardly ever" · ពាក្យដែលមានន័យដូច hardly ever</div>
+      <div class="ex-en" style="margin-top:6px;"><span class="hl-adv" style="color:var(--accent2);font-weight:800;">seldom</span> &nbsp;·&nbsp; <span class="hl-adv" style="color:var(--accent2);font-weight:800;">rarely</span></div>
+      <span class="khmer">កម្រណាស់ · ស្ទើរតែមិនដែល</span>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>seldom vs rarely:</strong> Both mean the same thing. <strong>seldom</strong> is more formal (written English). <strong>rarely</strong> is more common in everyday speech.<br>
+    <span style="font-family:'Noto Sans Khmer',sans-serif;font-size:12px;">seldom និង rarely មានន័យដូចគ្នា។ seldom ប្រើក្នុងការសរសេរផ្លូវការ។ rarely ប្រើក្នុងការនិយាយប្រចាំថ្ងៃ។</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ ADVERB POSITION -->
+<div class="panel" id="panel-position">
+  <div class="section-title">Where does the adverb go? <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">គុណស័ព្ទ​ប្រេកង់​ដាក់​នៅ​ឯណា?</span></div>
+
+  <div class="pos-card">
+    <div class="pos-header">
+      <span class="pos-badge" style="background:rgba(167,139,250,0.2);color:var(--accent4);">RULE · វិធាន</span>
+      <span class="pos-rule">Most adverbs of frequency go <strong style="color:var(--accent4)">BEFORE the main verb</strong></span>
+    </div>
+    <div class="sentence-builder">
+      <span class="sb" style="background:rgba(86,207,137,0.18);color:var(--green);">Subject</span>
+      <span style="color:var(--muted);font-size:18px;">+</span>
+      <span class="sb" style="background:rgba(167,139,250,0.22);color:var(--accent4);">adverb</span>
+      <span style="color:var(--muted);font-size:18px;">+</span>
+      <span class="sb" style="background:rgba(255,107,107,0.18);color:var(--accent3);">verb</span>
+      <span class="sb" style="background:rgba(255,255,255,0.07);color:var(--muted);">+ rest</span>
+    </div>
+    <div class="sentence-builder" style="margin-top:10px;">
+      <span class="sb" style="background:rgba(86,207,137,0.18);color:var(--green);">I</span>
+      <span class="sb" style="background:rgba(167,139,250,0.22);color:var(--accent4);">usually</span>
+      <span class="sb" style="background:rgba(255,107,107,0.18);color:var(--accent3);">eat</span>
+      <span class="sb" style="background:rgba(255,255,255,0.07);color:var(--muted);">rice for breakfast.</span>
+    </div>
+    <div class="sentence-builder">
+      <span class="sb" style="background:rgba(86,207,137,0.18);color:var(--green);">She</span>
+      <span class="sb" style="background:rgba(167,139,250,0.22);color:var(--accent4);">rarely</span>
+      <span class="sb" style="background:rgba(255,107,107,0.18);color:var(--accent3);">goes</span>
+      <span class="sb" style="background:rgba(255,255,255,0.07);color:var(--muted);">to school by moto.</span>
+    </div>
+    <div class="sentence-builder">
+      <span class="sb" style="background:rgba(86,207,137,0.18);color:var(--green);">We</span>
+      <span class="sb" style="background:rgba(167,139,250,0.22);color:var(--accent4);">frequently</span>
+      <span class="sb" style="background:rgba(255,107,107,0.18);color:var(--accent3);">study</span>
+      <span class="sb" style="background:rgba(255,255,255,0.07);color:var(--muted);">together.</span>
+    </div>
+    <span class="khmer" style="margin-top:10px;">គុណស័ព្ទ​ប្រេកង់​ភាគច្រើន​ត្រូវ​ដាក់​មុន​កិរិយាស័ព្ទ​មេ</span>
+  </div>
+
+  <div class="pos-card" style="border-left-color:var(--accent2);">
+    <div class="pos-header">
+      <span class="pos-badge" style="background:rgba(78,205,196,0.18);color:var(--accent2);">EXCEPTION ·ករណីពិសេស</span>
+      <span class="pos-rule"><strong style="color:var(--accent2)">"a lot"</strong> always goes at the END</span>
+    </div>
+    <div class="sentence-builder">
+      <span class="sb" style="background:rgba(86,207,137,0.18);color:var(--green);">They</span>
+      <span class="sb" style="background:rgba(255,107,107,0.18);color:var(--accent3);">play</span>
+      <span class="sb" style="background:rgba(255,255,255,0.07);color:var(--muted);">football</span>
+      <span class="sb" style="background:rgba(78,205,196,0.22);color:var(--accent2);">a lot.</span>
+    </div>
+    <div class="sentence-builder">
+      <span class="sb" style="background:rgba(86,207,137,0.18);color:var(--green);">I</span>
+      <span class="sb" style="background:rgba(255,107,107,0.18);color:var(--accent3);">use</span>
+      <span class="sb" style="background:rgba(255,255,255,0.07);color:var(--muted);">TikTok</span>
+      <span class="sb" style="background:rgba(78,205,196,0.22);color:var(--accent2);">a lot.</span>
+    </div>
+    <span class="khmer" style="margin-top:10px;">"a lot" តែងតែ​ដាក់​នៅ​ចុង​ប្រយោគ</span>
+  </div>
+
+  <div class="section-title">Common Errors <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">កំហុស​ទូទៅ</span></div>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
+    <div class="error-ok-row">
+      <div class="err-box"><div class="err-label">❌ WRONG</div>I go <u>sometimes</u> to the market.<br><span style="font-family:'Noto Sans Khmer',sans-serif;font-size:11px;color:var(--muted);">(Khmer/Chinese pattern)</span></div>
+      <div class="ok-box"><div class="ok-label">✅ CORRECT</div>I <strong>sometimes</strong> go to the market.<br><span style="font-family:'Noto Sans Khmer',sans-serif;font-size:11px;color:var(--muted);">ខ្ញុំ​ម្ដង​ម្កាល​ទៅ​ផ្សារ</span></div>
+    </div>
+    <div class="error-ok-row">
+      <div class="err-box"><div class="err-label">❌ WRONG</div>I eat <u>rarely</u> rice.<br><span style="font-family:'Noto Sans Khmer',sans-serif;font-size:11px;color:var(--muted);">(putting adverb after verb)</span></div>
+      <div class="ok-box"><div class="ok-label">✅ CORRECT</div>I <strong>rarely</strong> eat rice.<br><span style="font-family:'Noto Sans Khmer',sans-serif;font-size:11px;color:var(--muted);">ខ្ញុំ​កម្រ​ញ៉ាំ​បាយ</span></div>
+    </div>
+    <div class="error-ok-row">
+      <div class="err-box"><div class="err-label">❌ WRONG</div>She goes <u>usually</u> to the library.</div>
+      <div class="ok-box"><div class="ok-label">✅ CORRECT</div>She <strong>usually</strong> goes to the library.<br><span style="font-family:'Noto Sans Khmer',sans-serif;font-size:11px;color:var(--muted);">នាង​ជា​ធម្មតា​ទៅ​បណ្ណាល័យ</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ SOMETIMES SPECIAL -->
+<div class="panel" id="panel-sometimes">
+  <div class="section-title">Sometimes — The Flexible Adverb <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">sometimes — គុណស័ព្ទ​ដែល​អាច​ដាក់​បាន​ទី​បី​កន្លែង</span></div>
+
+  <div class="special-card">
+    <div class="special-title">⭐ Sometimes is special!</div>
+    <div class="special-sub">It can go in the BEGINNING, MIDDLE, or END of a sentence — all are correct.<br>
+      <span style="font-family:'Noto Sans Khmer',sans-serif;font-size:12px;">sometimes អាចដាក់នៅដើម កណ្ដាល ឬ ចុងប្រយោគ — ទាំងអស់ ត្រឹមត្រូវ</span>
+    </div>
+    <div class="pos-pills">
+      <div class="pos-pill pp-begin"><span class="pp-label">Beginning · ដើម</span><span style="color:var(--accent1);font-size:14px;font-weight:800;">Sometimes, I…</span></div>
+      <div class="pos-pill pp-mid"><span class="pp-label">Middle · កណ្ដាល</span><span style="color:var(--accent4);font-size:14px;font-weight:800;">I sometimes…</span></div>
+      <div class="pos-pill pp-end"><span class="pp-label">End · ចុង</span><span style="color:var(--accent2);font-size:14px;font-weight:800;">…sometimes.</span></div>
+    </div>
+    <div class="sometimes-examples">
+      <div class="se">
+        <span class="hl" style="color:var(--accent1);">Sometimes</span>, I eat noodles for breakfast.
+        <span class="khmer">ម្ដង​ម្កាល ខ្ញុំ​ញ៉ាំ​មី​ពេល​ព្រឹក</span>
+      </div>
+      <div class="se">
+        I <span class="hl" style="color:var(--accent4);">sometimes</span> eat noodles for breakfast.
+        <span class="khmer">ខ្ញុំ​ម្ដង​ម្កាល​ញ៉ាំ​មី​ពេល​ព្រឹក</span>
+      </div>
+      <div class="se">
+        I eat noodles for breakfast <span class="hl" style="color:var(--accent2);">sometimes</span>.
+        <span class="khmer">ខ្ញុំ​ញ៉ាំ​មី​ពេល​ព្រឹក​ម្ដង​ម្កាល</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">Compare with other adverbs <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">ប្រៀប​ធៀប​ជាមួយ​គុណស័ព្ទ​ផ្សេងទៀត</span></div>
+
+  <table class="ref-table">
+    <tr>
+      <th>Adverb</th>
+      <th>Khmer · ខ្មែរ</th>
+      <th>Beginning?</th>
+      <th>Middle?</th>
+      <th>End?</th>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--accent4);">sometimes</strong></td>
+      <td class="kh-td">ម្ដង​ម្កាល</td>
+      <td style="color:var(--green);">✅ Yes</td>
+      <td style="color:var(--green);">✅ Yes</td>
+      <td style="color:var(--green);">✅ Yes</td>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--accent1);">often</strong></td>
+      <td class="kh-td">ញឹកញាប់</td>
+      <td style="color:var(--red);">❌ No</td>
+      <td style="color:var(--green);">✅ Yes</td>
+      <td style="color:var(--green);">✅ Yes</td>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--accent1);">usually</strong></td>
+      <td class="kh-td">ជា​ធម្មតា</td>
+      <td style="color:var(--red);">❌ No</td>
+      <td style="color:var(--green);">✅ Yes (best)</td>
+      <td style="color:var(--red);">❌ No</td>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--accent2);">rarely</strong></td>
+      <td class="kh-td">កម្រ</td>
+      <td style="color:var(--red);">❌ No</td>
+      <td style="color:var(--green);">✅ Yes (only)</td>
+      <td style="color:var(--red);">❌ No</td>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--accent2);">seldom</strong></td>
+      <td class="kh-td">កម្រ​</td>
+      <td style="color:var(--red);">❌ No</td>
+      <td style="color:var(--green);">✅ Yes (only)</td>
+      <td style="color:var(--red);">❌ No</td>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--accent2);">a lot</strong></td>
+      <td class="kh-td">ច្រើន</td>
+      <td style="color:var(--red);">❌ No</td>
+      <td style="color:var(--red);">❌ No</td>
+      <td style="color:var(--green);">✅ Yes (only)</td>
+    </tr>
+    <tr>
+      <td><strong>frequently</strong></td>
+      <td class="kh-td">ជា​ប្រចាំ</td>
+      <td style="color:var(--red);">❌ No</td>
+      <td style="color:var(--green);">✅ Yes (best)</td>
+      <td style="color:var(--red);">❌ No</td>
+    </tr>
+  </table>
+
+    </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ NUMBERS -->
+<div class="panel" id="panel-numbers">
+  <div class="section-title">Number Expressions <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">ការ​បញ្ជាក់​ចំនួន</span></div>
+
+  <div class="num-grid">
+    <div class="num-card">
+      <div class="num-big">Once</div>
+      <div class="num-kh">មួយ​ដង</div>
+      <div class="num-examples">once a day · once a week<br>once a month · once a year</div>
+    </div>
+    <div class="num-card">
+      <div class="num-big">Twice</div>
+      <div class="num-kh">ពីរ​ដង</div>
+      <div class="num-examples">twice a day · twice a week<br>twice a month · twice a year</div>
+    </div>
+    <div class="num-card">
+      <div class="num-big">Three times</div>
+      <div class="num-kh">បី​ដង</div>
+      <div class="num-examples">three times a week<br>three times a day</div>
+    </div>
+    <div class="num-card">
+      <div class="num-big">Four times</div>
+      <div class="num-kh">បួន​ដង</div>
+      <div class="num-examples">four times a month<br>four times a year</div>
+    </div>
+    <div class="num-card">
+      <div class="num-big">Every day</div>
+      <div class="num-kh">រាល់​ថ្ងៃ</div>
+      <div class="num-examples">every morning · every evening<br>every Sunday · every weekend</div>
+    </div>
+    <div class="num-card">
+      <div class="num-big">Every other​ : One skip One</div>
+      <div class="num-kh">ម្តង​ ខានម្តង (កើតឡើងម្តង រំលងម្តង)</div>
+      <div class="num-examples">every other day<br>every other week</div>
+    </div>
+  </div>
+
+  <div class="info-box" style="margin-bottom:16px;">
+    <strong>Formula · រូបមន្ត:</strong> &nbsp; <span style="color:var(--accent2);font-weight:800;">[number] + times + a + [period]</span><br>
+    three times + a + week → <strong>three times a week</strong><br>
+    <span style="font-family:'Noto Sans Khmer',sans-serif;font-size:12px;">ចំនួន + times + a + រយៈពេល → ឧទាហរណ៍ three times a week (បី​ដង​ក្នុង​មួយ​សប្ដាហ៍)</span>
+  </div>
+
+  <div class="error-ok-row" style="margin-bottom:20px;">
+    <div class="err-box">
+      <div class="err-label">❌ Do NOT say</div>
+      <strong>one time</strong> a week<br>
+      <strong>two times</strong> a month<br>
+      <span style="font-family:'Noto Sans Khmer',sans-serif;font-size:11px;color:var(--muted);">កំហុស​ទូទៅ​របស់​សិស្ស</span>
+    </div>
+    <div class="ok-box">
+      <div class="ok-label">✅ Say instead</div>
+      <strong>once</strong> a week<br>
+      <strong>twice</strong> a month<br>
+      <span style="font-family:'Noto Sans Khmer',sans-serif;font-size:11px;color:var(--muted);">once = មួយ​ដង &nbsp;·&nbsp; twice = ពីរ​ដង</span>
+    </div>
+  </div>
+
+  <div class="section-title">Example Sentences <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">ប្រយោគ​ឧទាហរណ៍</span></div>
+  <div class="examples-grid">
+    <div class="ex-card">
+      <div class="ex-en">I go to the gym <span class="hl hl-num">twice a week</span>.</div>
+      <span class="khmer">ខ្ញុំ​ទៅ​ហាត់​ប្រាណ​ពីរ​ដង​ក្នុង​មួយ​សប្ដាហ៍</span>
+    </div>
+    <div class="ex-card">
+      <div class="ex-en">We meet <span class="hl hl-num">once a month</span>.</div>
+      <span class="khmer">ពួក​យើង​ជួប​គ្នា​មួយ​ដង​ក្នុង​មួយ​ខែ</span>
+    </div>
+    <div class="ex-card">
+      <div class="ex-en">She calls her mom <span class="hl hl-num">every day</span>.</div>
+      <span class="khmer">នាង​ទូរស័ព្ទ​ទៅ​ម្ដាយ​រាល់​ថ្ងៃ</span>
+    </div>
+    <div class="ex-card">
+      <div class="ex-en">They play football <span class="hl hl-num">three times a week</span>.</div>
+      <span class="khmer">ពួក​គេ​លេង​បាល់​ទាត់​បី​ដង​ក្នុង​មួយ​សប្ដាហ៍</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ HOW TO ANSWER -->
+<div class="panel" id="panel-answers">
+  <div class="section-title">3 Ways to Answer "How Often?" <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">វិធី​ ៣ យ៉ាង​ក្នុង​ការ​ឆ្លើយ​សំណួរ How Often?</span></div>
+
+  <div class="answer-types-grid">
+    <div class="ans-type-card" style="border-top:3px solid var(--accent4);">
+      <div class="ans-type-title" style="color:var(--accent4);">① With an adverb<br><span style="font-family:'Noto Sans Khmer',sans-serif;font-weight:400;font-size:11px;">ដោយ​ប្រើ​គុណស័ព្ទ​ប្រេកង់</span></div>
+      <div class="ans-ex-row">I <strong style="color:var(--accent4);">usually</strong> go.<span class="kh2">ខ្ញុំ​ជា​ធម្មតា​ទៅ</span></div>
+      <div class="ans-ex-row">She <strong style="color:var(--accent4);">rarely</strong> cooks.<span class="kh2">នាង​កម្រ​ចំអិន​អាហារ</span></div>
+      <div class="ans-ex-row">We <strong style="color:var(--accent4);">often</strong> study together.<span class="kh2">ពួក​យើង​ញឹកញាប់​រៀន​ជា​មួយ​គ្នា</span></div>
+      <div class="ans-ex-row">I go there <strong style="color:var(--accent4);">a lot</strong>.<span class="kh2">ខ្ញុំ​ទៅ​ទី​នោះ​ញឹកញាប់</span></div>
+    </div>
+    <div class="ans-type-card" style="border-top:3px solid var(--green);">
+      <div class="ans-type-title" style="color:var(--green);">② With a day / time<br><span style="font-family:'Noto Sans Khmer',sans-serif;font-weight:400;font-size:11px;">ដោយ​ប្រើ​ថ្ងៃ ឬ ពេល​វេលា</span></div>
+      <div class="ans-ex-row"><strong style="color:var(--green);">On Mondays</strong> and Thursdays.<span class="kh2">ថ្ងៃ​ចន្ទ​និង​ថ្ងៃ​ព្រហស្បតិ៍</span></div>
+      <div class="ans-ex-row"><strong style="color:var(--green);">Every weekend.</strong><span class="kh2">រាល់​ចុង​សប្ដាហ៍</span></div>
+      <div class="ans-ex-row"><strong style="color:var(--green);">Every morning.</strong><span class="kh2">រាល់​ព្រឹក</span></div>
+      <div class="ans-ex-row"><strong style="color:var(--green);">In the evening.</strong><span class="kh2">ពេល​ល្ងាច</span></div>
+    </div>
+    <div class="ans-type-card" style="border-top:3px solid var(--accent2);">
+      <div class="ans-type-title" style="color:var(--accent2);">③ With a number<br><span style="font-family:'Noto Sans Khmer',sans-serif;font-weight:400;font-size:11px;">ដោយ​ប្រើ​ចំនួន</span></div>
+      <div class="ans-ex-row"><strong style="color:var(--accent2);">Once</strong> a week.<span class="kh2">មួយ​ដង​ក្នុង​មួយ​សប្ដាហ៍</span></div>
+      <div class="ans-ex-row"><strong style="color:var(--accent2);">Twice</strong> a month.<span class="kh2">ពីរ​ដង​ក្នុង​មួយ​ខែ</span></div>
+      <div class="ans-ex-row"><strong style="color:var(--accent2);">Three times</strong> a year.<span class="kh2">បី​ដង​ក្នុង​មួយ​ឆ្នាំ</span></div>
+      <div class="ans-ex-row"><strong style="color:var(--accent2);">Every day.</strong><span class="kh2">រាល់​ថ្ងៃ</span></div>
+    </div>
+  </div>
+
+  <div class="section-title">Full Q &amp; A Examples <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">ឧទាហរណ៍​សំណួរ​និង​ចម្លើយ</span></div>
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
+    <div class="ex-card" style="background:var(--card2);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div>
+          <div class="ex-label">Q: <span style="color:var(--accent1);">How often do you eat rice?</span></div>
+          <span class="khmer">តើ​អ្នក​ញ៉ាំ​បាយ​ញឹកញាប់​ប៉ុណ្ណា?</span>
+        </div>
+        <div>
+          <div class="ex-label">A: I <span style="color:var(--accent4);">always</span> eat rice.</div>
+          <span class="khmer">ខ្ញុំ​តែងតែ​ញ៉ាំ​បាយ</span>
+        </div>
+      </div>
+    </div>
+    <div class="ex-card" style="background:var(--card2);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div>
+          <div class="ex-label">Q: <span style="color:var(--accent1);">How often does your group meet?</span></div>
+          <span class="khmer">តើ​ក្រុម​របស់​អ្នក​ជួប​គ្នាញឹកញាប់​ប៉ុណ្ណា?</span>
+        </div>
+        <div>
+          <div class="ex-label">A: <span style="color:var(--green);">Twice a week.</span></div>
+          <span class="khmer">ពីរ​ដង​ក្នុង​មួយ​សប្ដាហ៍</span>
+        </div>
+      </div>
+    </div>
+    <div class="ex-card" style="background:var(--card2);">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div>
+          <div class="ex-label">Q: <span style="color:var(--accent1);">How often do you use TikTok?</span></div>
+          <span class="khmer">តើ​អ្នក​ប្រើ​ទីកតុក​ញឹកញាប់​ប៉ុណ្ណា?</span>
+        </div>
+        <div>
+          <div class="ex-label">A: I use it <span style="color:var(--accent2);">every day</span>!</div>
+          <span class="khmer">ខ្ញុំ​ប្រើ​វា​រាល់​ថ្ងៃ!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ QUIZ -->
+<div class="panel" id="panel-quiz">
+  <div class="section-title">Quick Quiz <span class="khmer" style="font-size:10px;letter-spacing:0;text-transform:none;">តេស្ត​ខ្លី</span></div>
+
+  <div class="quiz-score-bar">
+    <div class="score-num" id="score-num">0 / 6</div>
+    <div class="score-label">Score · ពិន្ទុ</div>
+    <br>
+    <button class="btn-reset" onclick="resetQuiz()">🔄 Reset Quiz · ចាប់​ផ្ដើម​ម្ដង​ទៀត</button>
+  </div>
+
+  <div id="quiz-questions"></div>
+</div>
+
+</main>
+
+<script>
+const quizData = [
+  {
+    q: "Choose the correct sentence · ជ្រើស​រើសប្រយោគ​ដែលត្រឹម​ត្រូវ",
+    opts: [
+      "I go usually to school.",
+      "I usually go to school.",
+      "Usually I go school.",
+      "I go to school usual."
+    ],
+    correct: 1,
+    feedback: "✅ 'usually' goes BEFORE the main verb 'go'. · usually ដាក់​មុន​កិរិយាស័ព្ទ​មេ go"
+  },
+  {
+    q: "How do you say 1x per week? · មួយ​ដង​ក្នុង​មួយ​សប្ដាហ៍ គេនិយាយដូចម្តេច?",
+    opts: [
+      "One time a week",
+      "Once a week",
+      "One times week",
+      "A week once"
+    ],
+    correct: 1,
+    feedback: "✅ We say 'once' (not 'one time') for 1x. · យើង​ប្រើ once មិន​ប្រើ one time"
+  },
+  {
+    q: "Where can 'sometimes' go? · sometimes អាច​ដាក់​នៅ​ឯណា?",
+    opts: [
+      "Only in the middle",
+      "Only at the beginning",
+      "Beginning, middle, OR end",
+      "Only at the end"
+    ],
+    correct: 2,
+    feedback: "✅ 'sometimes' is special — it can go in all 3 positions! · sometimes ជាពាក្យពិសេស — ដែលអាច​ដាក់​បាន​បី​កន្លែង!"
+  },
+  {
+    q: "Where does 'a lot' go? · 'a lot' ដាក់​នៅ​ឯណា?",
+    opts: [
+      "Before the verb",
+      "At the beginning",
+      "After 'do'",
+      "At the END of the sentence"
+    ],
+    correct: 3,
+    feedback: "✅ 'a lot' ALWAYS goes at the END. · 'a lot' តែង​តែ​ដាក់​នៅ​ចុង​ប្រយោគ"
+  },
+  {
+    q: "Which means the same as 'hardly ever'? · ពាក្យ​មួយ​ណា​ដែល​មាន​ន័យ​ដូច 'hardly ever'?",
+    opts: [
+      "usually",
+      "frequently",
+      "rarely",
+      "always"
+    ],
+    correct: 2,
+    feedback: "✅ 'rarely' (and 'seldom') = hardly ever. · rarely និង seldom មាន​ន័យ​ដូច hardly ever"
+  },
+  {
+    q: "How often do you play football? Best answer: · ចម្លើយ​ណា​ល្អ​បំផុត?",
+    opts: [
+      "I play football times three week.",
+      "I play football three times a week.",
+      "Three times week I play football.",
+      "I three times play football week."
+    ],
+    correct: 1,
+    feedback: "✅ Formula: [number] times a [period]. · រូប​មន្ត: ចំនួន + times + a + រយៈ​ពេល"
+  }
+];
+
+const scaleExamples = [
+  { word: "never · មិនដែល", en: "I <strong style='color:var(--accent2)'>never</strong> eat durian.", kh: "ខ្ញុំ​មិន​ដែល​ញ៉ាំ​ទុរេន​ទេ" },
+  { word: "rarely · កម្រ", en: "She <strong style='color:var(--accent2)'>rarely</strong> watches TV.", kh: "នាង​កម្រ​មើល​ទូរទស្សន៍ណាស់" },
+  { word: "seldom · កម្រណាស់", en: "He <strong style='color:var(--accent2)'>seldom</strong> goes to the gym.", kh: "គាត់​កម្រ​​ទៅ​ហាត់​ប្រាណ" },
+  { word: "sometimes · ម្ដងម្កាល", en: "<strong style='color:var(--accent4)'>Sometimes</strong> I ride a moto to school.", kh: "ខ្ញុំ​ជិះ​មូតូ​ទៅ​សាលាម្ដង​ម្កាល" },
+  { word: "often · ញឹកញាប់", en: "We <strong style='color:var(--accent1)'>often</strong> eat at the market.", kh: "ពួក​យើង​​ញ៉ាំ​អីនៅ​ផ្សារញឹក​ញាប់" },
+  { word: "usually · ជាធម្មតា", en: "I <strong style='color:var(--accent1)'>usually</strong> wake up at 6am.", kh: "ខ្ញុំ​ជា​ធម្មតា​ភ្ញាក់​ម៉ោង​ ៦ ​ព្រឹក" },
+  { word: "always · តែងតែ", en: "She <strong style='color:var(--accent3)'>always</strong> eats rice for lunch.", kh: "នាង​តែង​តែ​ញ៉ាំ​បាយ​នៅ​ពេល​ថ្ងៃ​ត្រង់" }
+];
+
+let scores = {};
+
+function showPanel(name) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + name).classList.add('active');
+  event.target.classList.add('active');
+}
+
+function showScaleEx(i) {
+  const box = document.getElementById('scale-ex-box');
+  const ex = scaleExamples[i];
+  document.getElementById('scale-ex-word').textContent = ex.word;
+  document.getElementById('scale-ex-en').innerHTML = ex.en;
+  document.getElementById('scale-ex-kh').textContent = ex.kh;
+  box.style.display = 'block';
+}
+
+function buildQuiz() {
+  const container = document.getElementById('quiz-questions');
+  container.innerHTML = '';
+  scores = {};
+  quizData.forEach((q, qi) => {
+    const card = document.createElement('div');
+    card.className = 'quiz-card';
+    card.id = 'quiz-' + qi;
+    let optsHTML = q.opts.map((o, oi) =>
+      `<button class="quiz-opt" onclick="checkAnswer(${qi}, ${oi})">${o}</button>`
+    ).join('');
+    card.innerHTML = `
+      <div class="quiz-q">${qi + 1}. ${q.q}</div>
+      <div class="quiz-options">${optsHTML}</div>
+      <div class="quiz-feedback" id="fb-${qi}"></div>
+    `;
+    container.appendChild(card);
+  });
+  updateScore();
+}
+
+function checkAnswer(qi, chosen) {
+  const q = quizData[qi];
+  if (scores[qi] !== undefined) return;
+  scores[qi] = chosen === q.correct ? 1 : 0;
+  const card = document.getElementById('quiz-' + qi);
+  const opts = card.querySelectorAll('.quiz-opt');
+  opts.forEach((btn, i) => {
+    btn.classList.add('disabled');
+    if (i === q.correct) btn.classList.add('correct');
+    else if (i === chosen) btn.classList.add('wrong');
+  });
+  const fb = document.getElementById('fb-' + qi);
+  fb.className = 'quiz-feedback show ' + (scores[qi] ? 'ok' : 'bad');
+  fb.textContent = q.feedback;
+  updateScore();
+}
+
+function updateScore() {
+  const total = Object.values(scores).reduce((a, b) => a + b, 0);
+  document.getElementById('score-num').textContent = total + ' / ' + quizData.length;
+}
+
+function resetQuiz() { buildQuiz(); }
+
+buildQuiz();
+</script>
+</body>
+</html>
